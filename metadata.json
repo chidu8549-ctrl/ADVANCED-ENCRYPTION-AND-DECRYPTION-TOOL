@@ -1,0 +1,6 @@
+{
+  "name": "Advanced Encryption and Decryption Tool",
+  "description": "A high-performance full-stack application built with Node.js, Express, and SQLite for secure communication and steganography.",
+  "requestFramePermissions": [],
+  "majorCapabilities": []
+}

@@ -1,0 +1,49 @@
+<div id="tool-decrypt" class="space-y-6">
+    <header class="border-b border-blue-500/30 pb-4 flex items-center justify-between">
+        <h1 class="text-2xl font-bold text-blue-400 flex items-center gap-3">
+            <span class="bg-blue-600/20 p-2 rounded">DECRYPT</span>
+            <span class="text-slate-400 font-normal">Tool</span>
+        </h1>
+        <button onclick="resetCategory('decrypt')" class="bg-slate-800/50 hover:bg-slate-700 text-slate-400 hover:text-white px-3 py-1 rounded border border-slate-700 text-[10px] font-bold uppercase transition-all">Reset All Decrypt</button>
+    </header>
+    <div class="space-y-6">
+        <section class="bg-slate-900 border border-slate-700 rounded-lg p-6 space-y-4">
+            <div class="flex items-center justify-between">
+                <h2 class="text-lg font-bold text-blue-400">Morse code Decoder</h2>
+            </div>
+            <textarea id="morse-decode-input" placeholder="Paste Morse here..." class="w-full h-32 bg-slate-800 border border-slate-700 rounded p-3 text-emerald-500 focus:outline-none resize-none"></textarea>
+            <button onclick="handleMorseDecode()" class="w-full bg-slate-800 hover:bg-slate-700 border border-slate-600 text-white py-3 font-bold rounded transition-colors">Translate Morse</button>
+            <div class="flex items-center justify-between">
+                <label class="text-[10px] font-bold text-slate-500 uppercase tracking-widest">Decoded Result</label>
+                <button onclick="copyDecodedMorse()" class="text-[10px] font-bold text-blue-500 hover:text-blue-400 uppercase tracking-tighter flex items-center gap-1 bg-blue-500/10 px-2 py-0.5 rounded border border-blue-500/20 transition-colors">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>
+                    <span>COPY TEXT</span>
+                </button>
+            </div>
+            <div id="morse-decode-output" class="w-full h-24 bg-slate-950 border border-slate-800 rounded p-3 text-white text-sm overflow-y-auto ">
+                Decoded text will appear here...
+            </div>
+        </section>
+        <section class="bg-slate-900 border border-slate-700 rounded-lg p-6 space-y-4">
+            <div class="flex items-center justify-between">
+                <h2 class="text-lg font-bold text-blue-400">Image Decoder</h2>
+            </div>
+            <input type="file" id="stego-extract-input" class="hidden" onchange="onStegoExtractFileChange(this)">
+            <button onclick="document.getElementById('stego-extract-input').click()" class="w-full border border-slate-700 rounded py-3 text-slate-400 hover:bg-slate-800 transition-colors">
+                <span id="stego-extract-label">Select Processed Image</span>
+            </button>
+            <button onclick="handleStegoExtract()" class="w-full bg-blue-600 hover:bg-blue-500 text-white font-bold py-3 rounded shadow-lg transition-all active:scale-95">Extract Message</button>
+            
+            <div id="stego-extract-container" class="space-y-2 hidden">
+                <div class="flex items-center justify-between">
+                    <label class="text-[10px] font-bold text-slate-500 uppercase tracking-widest">Extracted Message</label>
+                    <button id="copy-stego-btn" onclick="copyExtractedText()" class="text-[10px] font-bold text-emerald-500 hover:text-emerald-400 uppercase tracking-tighter flex items-center gap-1 bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/20 transition-colors">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>
+                        <span>COPY TEXT</span>
+                    </button>
+                </div>
+                <div id="stego-extract-output" class="w-full bg-slate-800 border-l-4 border-emerald-500 p-4 text-emerald-400 break-words"></div>
+            </div>
+        </section>
+    </div>
+</div>
